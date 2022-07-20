@@ -1,0 +1,403 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+    list-style-position: inside;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+$defaultFont: 'Montserrat', sans-serif;
+
+$btnBg: #0cb8b6;
+$default: #666;
+$title: #111;
+
+
+
+// global styles start
+
+@media screen and(min-width: 991px){
+    .height120{
+        height: 120px;
+    }
+}
+@media screen and (max-width: 991px) {
+    body, html {
+      font-size: 14px; 
+    } 
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.6em;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 10px;
+
+    @media screen and(max-width: 1200px){
+        max-width: 990px;
+    }
+}
+
+.title{
+    font-size: 36px;
+    margin-bottom: 14px;
+    color: $title;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2em;
+}
+
+.subtitle{
+    font-size: 16px;
+    line-height: 1.6em;
+    text-align: center;
+
+}
+// global styles end
+
+body{
+    font-family: $defaultFont;
+    color: $default;   
+}
+
+
+// navigation block start
+nav{
+    position: fixed;
+    background-color:  rgba(255, 255, 255, 0.9);
+    width: 100%;
+    z-index: 99999;
+    .contact-info{
+        border-bottom: 1px solid rgba(12, 184, 182, 0.4);
+        .contact-info-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            height: 45px;
+            
+            .contact-info-left{
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                flex-wrap: wrap;
+                
+                li{
+                    display: flex;
+                    align-items: center;
+                    list-style-type: none;
+                    align-items: center;
+                    margin-right: 35px;
+
+                    a{
+                        color: $title;
+                        font-size: 15px;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                    
+                        &:hover{
+                            color: $btnBg;
+                        }
+                    }
+                    
+                    svg{
+                        width: 18px;
+                        margin-right: 10px;
+                        fill: #b5b5b5;
+                    }
+                }
+            }
+            .contact-info-right{
+                .contact-btn{
+                    text-decoration: none;
+                    color: $btnBg;
+                    font-size: 15px;
+                    font-family: $defaultFont;
+                    font-weight: 700;
+                }
+            }
+            .contact-btn:hover{
+                color: $title;
+            }
+        }
+        @media screen and(max-width: 991px){
+            display: none;
+        }
+    }
+    .nav-header{
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+           // position: fixed;
+            flex-wrap: wrap;
+            .logo{
+                a{
+                    img{
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            } 
+               
+                
+                  
+            #nav-list{
+                display: flex;
+                align-items: center;
+                li{
+                    list-style-type: none;
+                    
+                        
+                    a{
+                        padding: 15px 0;
+                        margin-left: 35px;
+                        font-size: 15px;
+                        font-family: $defaultFont;
+                        font-weight: 600;
+                        color: $default;
+                        text-decoration: none;
+                        position: relative;
+
+                            &:hover{
+                                color: $title;
+                            }
+
+                        @media screen and(max-width: 1110px){
+                            font-size: 14px;
+                        }
+                            
+                    }
+                    a.active{
+                        color: $btnBg;
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            bottom: 10px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            transition: all 0.3s ease;
+                            height: 2px;
+                            width: 100%;
+                            background-color: $btnBg; 
+                        }
+                    }
+                }
+            }
+
+        @media screen and(max-width: 991px){
+            position: relative;
+            #nav-list{
+                //display: none;
+                flex-direction: column;
+                position: absolute;
+                background: white;
+                padding: 10px;
+                min-width: 100%;
+                left: 0;
+                top: 100%;
+                border-top: 1px solid #eaeaea;
+                border-bottom: 1px solid #eaeaea;
+                transform: translateY(-700px);
+                transition: all 0.5s;
+                display: unset;
+                
+                &.menu_active{
+                    transform: translateY(0px);
+                    transition: all 0.5s;
+                }
+            
+                li{
+                    display: block;
+                    margin: 25px;
+                    list-style: none;
+                    a{
+                        padding: 8px 20px;
+                        font-weight: 400;
+                        font-size: 15px;
+                        
+
+                        &:before{
+                            display: none;
+                        }
+                        &.active{
+                            color: $default;
+                        }
+                       
+                    }
+                    
+
+                }
+            }
+        }
+    }
+
+        #mobile_menu_btn {
+            display: none;
+            cursor: pointer;
+            svg {
+                width: 30px;
+                fill: $default;
+            }
+            @media screen and(max-width: 991px){
+                display: block;  
+            }
+            
+        }
+    }
+}
+// navigation block start
+
+// Header Section Start
+
+header{
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    height: 810px;
+    
+    .hero-shape{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 600px;
+        width: 100%;
+        z-index: 2;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+        
+    .hero-section-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 810px;
+       
+        .hero-content{
+            display: flex;
+            .hero-text{
+               position: relative;
+                max-width: 1000px;
+                display: flex;
+                flex-direction: column;
+                z-index: 4;
+                h1{
+                    font-size: 60px;
+                    color: $title;
+                    font-weight: 600;
+                    
+                     .swiper-container{
+                        
+                        .swiper-wrapper{
+                            .swiper-slide{
+                                font-size: 15px;
+                            }
+
+                        }
+                    } 
+                    
+                }
+
+                p{
+                    font-weight: 400;
+                    color: $default;
+                    font-size: 18px;
+                    line-height: 1.6em;
+                    margin-bottom: 42px;
+                }
+                .hero-btn{
+                    button{
+                        font-family: $defaultFont;
+                        padding: 0.9em 2.9em;
+                        border-radius: 7px;
+                        border: none;
+                        outline: none;
+                        transition: all 0.4s ease;
+                        background-color: $btnBg;
+                        cursor: pointer;
+                        a{
+                            color: white;
+                            text-decoration: none;
+                            line-height: 1.6em;
+                            font-weight: 600;
+
+                        }
+                        &:hover{
+                            transform: translateY(-1px);
+                            box-shadow: 0px 5px 10px 0px rgb(68 68 68 / 10%);
+                        }
+                    }
+                }
+                .hero-social-group{
+                    width: 150px;
+                    height: 50px;
+                    position: absolute;
+                    top: 450px;
+                    .content{
+                        display: flex;
+                        align-items: center;
+                        height: 25px;
+                        .social-svg{
+                            margin: 5px;
+                            height: 25px;
+                            a{
+                                svg{
+                                    fill: $btnBg;
+                                    width: 25px;
+                                    transition: all 0.3s ease;
+                                }
+                                
+                            }
+                            &:hover{
+                                transform: scale(1.1);
+                            }
+                            
+                        }
+                       
+                    
+                    }
+                    
+                }    
+            } 
+
+            @media screen and(max-width: 991px){
+                .hero-text{
+                    margin-top: 100px;
+                    h1{
+                        font-size: 38px;
+                    }
+                }
+            }
+        }
+
+        
+        .about-slider{
+            max-width: 500px;
+            margin-top: 120px;
+             .owl-carousel{
+                 .hero-img{
+                     width: 100%;
+                     height: 100%;
+                 }
+             }
+             @media screen and(max-width: 991px){
+                 display: none;
+             }
+         }
+    }   
+}
+
+// Header Section End
+
